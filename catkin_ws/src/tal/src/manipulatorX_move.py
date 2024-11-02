@@ -61,20 +61,14 @@ rospy.loginfo("Moving to place position...")
 goal_joint_space_path_service_client(arm_request)
 rospy.sleep(2)
 
-# 6. Lower arm slightly to place the object
-arm_request.joint_position.position = [-0.5353, 0.016873, 0.323, 1.11]  # Lower to place object
-rospy.loginfo("Lowering arm to place object...")
-goal_joint_space_path_service_client(arm_request)
-rospy.sleep(2)
-
-# 7. Gripper - Open to release the object
+# 6. Gripper - Open to release the object
 gripper_request.joint_position.position = [0.01]  # Open gripper to release object
 rospy.loginfo("Opening gripper to release object...")
 goal_tool_control_service_client(gripper_request)
 rospy.sleep(2)
 
-# 8. Retract the arm (back to "Home" position)
-arm_request.joint_position.position = [0.0, -0.5, 0.3, 0.7]  # Retract to home
+# 7. Retract the arm (back to "Home" position)
+arm_request.joint_position.position = [0.0, 0.0, 0.0, 0.0]  # Retract to home
 rospy.loginfo("Retracting the arm to home position...")
 goal_joint_space_path_service_client(arm_request)
 rospy.sleep(3)
