@@ -1,0 +1,21 @@
+<launch>
+    <!-- Set the location of the URDF file -->
+    <arg name="urdf_file" default="$(find open_manipulator)/urdf/open_manipulator_robot.urdf.xacro"/>
+
+    <!-- Load the URDF into the parameter server -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg urdf_file)"/>
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+
+    <!-- Publish the robot's TF -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" />
+
+    <!-- Start Gazebo with an empty world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+    </include>
+
+    <!-- Spawn the robot model in Gazebo -->
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_robot" output="screen"
+          args="-param robot_description -urdf -model my_robot"/>
+</launch>
