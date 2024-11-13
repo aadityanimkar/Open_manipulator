@@ -1,49 +1,77 @@
-#!/usr/bin/env python3
-
 import rospy
-from std_msgs.msg import String
+import openai
 import speech_recognition as sr
+from std_msgs.msg import String
+from dotenv import load_dotenv
+import os
 
-def process_command(command):
-    # Placeholder for LLM processing; modify this part as needed
-    # Here we are simply returning the command after basic processing.
-    processed_command = command.lower()  # Example transformation (e.g., lowercase)
-    rospy.loginfo(f"Processed Command: {processed_command}")
-    return processed_command
+# Load environment variables from .env file
+load_dotenv()
 
-def listen_and_publish():
-    rospy.init_node('voice_command_listener', anonymous=True)
-    pub = rospy.Publisher('command', String, queue_size=10)
+# Initialize OpenAI with the API key from the .env file
+openai.api_key = os.getenv('OPEN_AI_KEY')
 
+def voice_to_text():
+    # Initialize recognizer and microphone
     recognizer = sr.Recognizer()
     mic = sr.Microphone()
 
-    rospy.loginfo("Listening for voice commands...")
+    print("Say something...")
+
+    with mic as source:
+        # Adjust for ambient noise
+        recognizer.adjust_for_ambient_noise(source)
+        audio = recognizer.listen(source)
+    
+    try:
+        # Use Google Speech Recognition to convert audio to text
+        print("Recognizing...")
+        command = recognizer.recognize_google(audio)
+        print("You said:", command)
+        return command
+    except sr.UnknownValueError:
+        print("Sorry, I could not understand the audio")
+        return ""
+    except sr.RequestError:
+        print("Could not request results from Google Speech Recognition service")
+        return ""
+
+def send_to_openai(text):
+    try:
+        response = openai.Completion.create(
+            engine="text-davinci-003",  # You can choose a different model if needed
+            prompt=text,
+            max_tokens=100
+        )
+        message = response.choices[0].text.strip()
+        return message
+    except openai.error.OpenAIError as e:
+        print(f"OpenAI API Error: {e}")
+        return ""
+
+def talker():
+    # Initialize ROS node
+    rospy.init_node('voice_command_node', anonymous=True)
+    pub = rospy.Publisher('voice_command', String, queue_size=10)
+    
+    rate = rospy.Rate(1)  # 1 Hz
 
     while not rospy.is_shutdown():
-        with mic as source:
-            recognizer.adjust_for_ambient_noise(source)
-            rospy.loginfo("Say something!")
-            audio = recognizer.listen(source)
+        # Get voice command from the microphone
+        command = voice_to_text()
 
-        try:
-            # Transcribe audio to text
-            command = recognizer.recognize_google(audio)
-            rospy.loginfo(f"Heard: {command}")
+        if command:
+            # Send the voice command to OpenAI for processing
+            openai_response = send_to_openai(command)
 
-            # Process the transcribed text with LLM or any language processing logic
-            processed_command = process_command(command)
+            # Publish the response to the ROS topic
+            rospy.loginfo(f"Publishing response: {openai_response}")
+            pub.publish(openai_response)
 
-            # Publish to the 'command' topic
-            pub.publish(processed_command)
-
-        except sr.UnknownValueError:
-            rospy.logwarn("Could not understand audio")
-        except sr.RequestError as e:
-            rospy.logerr(f"Could not request results from the speech recognition service; {e}")
+        rate.sleep()
 
 if __name__ == '__main__':
     try:
-        listen_and_publish()
+        talker()
     except rospy.ROSInterruptException:
         pass
