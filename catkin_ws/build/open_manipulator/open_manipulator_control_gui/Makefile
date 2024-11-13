@@ -182,6 +182,81 @@ open_manipulator_control_gui/fast:
 	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f open_manipulator/open_manipulator_control_gui/CMakeFiles/open_manipulator_control_gui.dir/build.make open_manipulator/open_manipulator_control_gui/CMakeFiles/open_manipulator_control_gui.dir/build
 .PHONY : open_manipulator_control_gui/fast
 
+# Convenience name for target.
+open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+.PHONY : open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_py: open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_py
+
+# fast build rule for target.
+sensor_msgs_generate_messages_py/fast:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+.PHONY : open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_nodejs: open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+sensor_msgs_generate_messages_nodejs/fast:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+.PHONY : sensor_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+.PHONY : open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_lisp: open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_lisp/fast:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+.PHONY : sensor_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+.PHONY : open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_eus: open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_eus
+
+# fast build rule for target.
+sensor_msgs_generate_messages_eus/fast:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+.PHONY : sensor_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+.PHONY : open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_cpp: open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_cpp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_cpp/fast:
+	cd /home/aaditya/ITR/Open_manipulator/catkin_ws/build && $(MAKE) -f open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make open_manipulator/open_manipulator_control_gui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+.PHONY : sensor_msgs_generate_messages_cpp/fast
+
 include/open_manipulator_control_gui/moc_main_window.o: include/open_manipulator_control_gui/moc_main_window.cpp.o
 
 .PHONY : include/open_manipulator_control_gui/moc_main_window.o
@@ -358,6 +433,11 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... open_manipulator_control_gui"
+	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... sensor_msgs_generate_messages_nodejs"
+	@echo "... sensor_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... include/open_manipulator_control_gui/moc_main_window.o"
 	@echo "... include/open_manipulator_control_gui/moc_main_window.i"
 	@echo "... include/open_manipulator_control_gui/moc_main_window.s"
