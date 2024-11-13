@@ -31,7 +31,13 @@ class CameraTransformPublisher:
         self.parent_frame = "world"  # Use the parent frame for your setup
 
         # OpenCV video capture to access the external camera (USB or IP Camera)
-        self.cap = cv2.VideoCapture(0)  # Replace 0 with your camera index or URL for IP cameras
+        for i in range(0,4):
+            try:
+                self.cap = cv2.VideoCapture(i) 
+                print("Cam done")
+            except Exception:
+                print("hello world")
+     # Replace 0 with your camera index or URL for IP cameras
 
         if not self.cap.isOpened():
             rospy.logerr("Error: Could not open camera.")
